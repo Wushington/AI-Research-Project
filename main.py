@@ -30,28 +30,28 @@ hw_m = 0
 hw_b = 0
 for i in range(epochs):
     hw_m, hw_b = gradient_descent(hw_m, hw_b, data, L, 'Homework')
-print(f'Homework Weights: (m={hw_m}, b={hw_b})')
+print(f'Homework Weights: m={hw_m}, b={hw_b}')
 
     # Project
 proj_m = 0
 proj_b = 0
 for i in range(epochs):
     proj_m, proj_b = gradient_descent(proj_m, proj_b, data, L, 'Project')
-print(f'Project Weights: (m={proj_m}, b={proj_b})')
+print(f'Project Weights: m={proj_m}, b={proj_b}')
 
     # Quiz
 quiz_m = 0
 quiz_b = 0
 for i in range(epochs):
     quiz_m, quiz_b = gradient_descent(quiz_m, quiz_b, data, L, 'Quiz')
-print(f'Quiz Weights: (m={quiz_m}, b={quiz_b})')
+print(f'Quiz Weights: m={quiz_m}, b={quiz_b}')
 
     # Exam
 exam_m = 0
 exam_b = 0
 for i in range(epochs):
     exam_m, exam_b = gradient_descent(exam_m, exam_b, data, L, 'Exam')
-print(f'Exam Weights: (m={exam_m}, b={exam_b})')
+print(f'Exam Weights: m={exam_m}, b={exam_b}')
 
 # Plot the data
 # plt.scatter(data.Total, data.Final)
