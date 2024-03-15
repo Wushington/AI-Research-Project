@@ -76,4 +76,4 @@ total = (hw * (hw_m / total_m)) + (proj * (proj_m / total_m)) + (quiz * (quiz_m 
 final = m * total + b
 letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
 
-print(f'Predicted final grade: {final:.2f} ({letter})')
+print(f'\nPredicted final grade: {final:.2f} ({letter})')
