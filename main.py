@@ -68,7 +68,7 @@ print(f'Exam Weights: m={exam_m}, b={exam_b}')
 # # proj = input('Enter the project average: ').replace(',', '.')
 # # quiz = input('Enter the quiz average: ').replace(',', '.')
 # # exam = input('Enter the exam grade: ').replace(',', '.')
-hw = 0.0
+hw = 100.0
 proj = 100.0
 quiz = 100.0
 exam = 100.0
