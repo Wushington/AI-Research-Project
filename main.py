@@ -63,16 +63,16 @@ print(f'Exam Weights: m={exam_m}, b={exam_b}')
 # # proj = input('Enter the project average: ').replace(',', '.')
 # # quiz = input('Enter the quiz average: ').replace(',', '.')
 # # exam = input('Enter the exam grade: ').replace(',', '.')
-hw = 90.0
+hw = 100.0
 proj = 100.0
-quiz = 80.0
-exam = 85.0
+quiz = 100.0
+exam = 100.0
 
 total_m = hw_m + proj_m + quiz_m + exam_m
 m = total_m / 4
 b = (hw_b + proj_b + quiz_b + exam_b) / 4
 
-total = (hw * (hw_m / total_m)) + (proj * (proj_m / total_m)) + (quiz * (quiz_m / total_m)) + (exam * (exam_m / total_m))
+total = (hw * (hw_m)) + (proj * (proj_m)) + (quiz * (quiz_m)) + (exam * (exam_m))
 final = m * total + b
 letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
 
