@@ -6,7 +6,7 @@ import numpy as np
 data = pd.read_csv('data\\FinalData.csv')
 
 # Gradient descent function
-def gradient_descent(m, b, points, learning_rate, column):
+def gradient_descent(m, b, points, L, column):
     m_gradient = 0
     b_gradient = 0
     n = len(points)
@@ -17,8 +17,8 @@ def gradient_descent(m, b, points, learning_rate, column):
         m_gradient += -(2/n) * x * (y - (m * x + b))
         b_gradient += -(2/n) * (y - (m * x + b))
 
-    new_m = m - (learning_rate * m_gradient)
-    new_b = b - (learning_rate * b_gradient)
+    new_m = m - (L * m_gradient)
+    new_b = b - (L * b_gradient)
     return new_m, new_b
 
 # Initialize variables
@@ -68,7 +68,7 @@ print(f'Exam Weights: m={exam_m}, b={exam_b}')
 # # proj = input('Enter the project average: ').replace(',', '.')
 # # quiz = input('Enter the quiz average: ').replace(',', '.')
 # # exam = input('Enter the exam grade: ').replace(',', '.')
-hw = 100.0
+hw = 0.0
 proj = 100.0
 quiz = 100.0
 exam = 100.0
@@ -76,18 +76,30 @@ exam = 100.0
 # Predict Using Total
 total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
 final_total = m * total + b
+# Plot the data
+plt.subplot(1, 2, 1)
+plt.scatter(data.Total, data.Final)
+plt.plot(list(range(0, 100)), [m * x + b for x in range(0, 100)], color='red')
+plt.xlabel('Total')
+plt.ylabel('Final')
 
 # Predict Using Averages
 m = (hw_m * .15) + (proj_m * .15) + (quiz_m * .2) + (exam_m * .5)
 b = (hw_b * .15) + (proj_b * .15) + (quiz_b * .2) + (exam_b * .5)
 total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
 final_separate = m * total + b
-
 # Plot the data
-# plt.scatter(data.Total, data.Final)
-# plt.plot(data.Total, m * data.Total + b, color='red')
-# plt.show()
+plt.subplot(1, 2, 2)
+plt.scatter(data.Total, data.Final)
+plt.plot(list(range(0, 100)), [m * x + b for x in range(0, 100)], color='red')
+plt.xlabel('Separate')
+plt.ylabel('Final')
 
-letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
-print(f'\nPredicted final grade: {final_total:.2f} ({letter})')
-print(f'\nPredicted final grade: {final_separate:.2f} ({letter})')
+# Convert to letter grade
+letter_total = 'A' if final_total >= 90 else 'B' if final_total >= 80 else 'C' if final_total >= 70 else 'D' if final_total >= 60 else 'F'
+letter_separate = 'A' if final_separate >= 90 else 'B' if final_separate >= 80 else 'C' if final_separate >= 70 else 'D' if final_separate >= 60 else 'F'
+print(f'\nPredicted Final Using Total: {final_total:.2f} ({letter_total})')
+print(f'Predicted Final Using Separate: {final_separate:.2f} ({letter_separate})')
+
+# Show the plot
+plt.show()
