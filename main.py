@@ -84,9 +84,9 @@ total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
 final_separate = m * total + b
 
 # Plot the data
-plt.scatter(data.Total, data.Final)
-plt.plot(data.Total, m * data.Total + b, color='red')
-plt.show()
+# plt.scatter(data.Total, data.Final)
+# plt.plot(data.Total, m * data.Total + b, color='red')
+# plt.show()
 
 letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
 print(f'\nPredicted final grade: {final_total:.2f} ({letter})')
