@@ -62,11 +62,6 @@ print(f'Total Weights: (m={m}, b={b})')
 #     exam_m, exam_b = gradient_descent(exam_m, exam_b, data, L, 'Exam')
 # print(f'Exam Weights: (m={exam_m}, b={exam_b})')
 
-# Plot the data
-# plt.scatter(data.Total, data.Final)
-# plt.plot(data.Total, m * data.Total + b, color='red')
-# plt.show()
-
 # Predict the final grade with averages
 # # hw = input('Enter the homework average: ').replace(',', '.')
 # # proj = input('Enter the project average: ').replace(',', '.')
@@ -87,3 +82,8 @@ final = m * total + b
 letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
 
 print(f'\nPredicted final grade: {final:.2f} ({letter})')
+
+# Plot the data
+plt.scatter(data.Total, data.Final)
+plt.plot(data.Total, m * data.Total + b, color='red')
+plt.show()
