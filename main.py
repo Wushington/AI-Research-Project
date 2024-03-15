@@ -27,13 +27,13 @@ epochs = 300
 
 # Perform gradient descent
     # Total
-# m = 0
-# b = 0
-# for i in range(epochs):
-#     if i % 100 == 0:
-#         print(f'Epoch {i}')
-#     m, b = gradient_descent(m, b, data, L, 'Total')
-# print(f'Total Weights: m={m}, b={b}')
+m = 0
+b = 0
+for i in range(epochs):
+    if i % 100 == 0:
+        print(f'Epoch {i}')
+    m, b = gradient_descent(m, b, data, L, 'Total')
+print(f'Total Weights: m={m}, b={b}')
 
     # Homework
 hw_m = 0
@@ -73,20 +73,21 @@ proj = 100.0
 quiz = 100.0
 exam = 100.0
 
+# Predict Using Total
+total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
+final_total = m * total + b
+
 # Predict Using Averages
 m = (hw_m * .15) + (proj_m * .15) + (quiz_m * .2) + (exam_m * .5)
 b = (hw_b * .15) + (proj_b * .15) + (quiz_b * .2) + (exam_b * .5)
 total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
-final = m * total + b
-
-# Predict Using Total
-# total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
-# final = m * total + b
-
-letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
-print(f'\nPredicted final grade: {final:.2f} ({letter})')
+final_separate = m * total + b
 
 # Plot the data
-# plt.scatter(data.Total, data.Final)
-# plt.plot(data.Total, m * data.Total + b, color='red')
-# plt.show()
+plt.scatter(data.Total, data.Final)
+plt.plot(data.Total, m * data.Total + b, color='red')
+plt.show()
+
+letter = 'A' if final >= 90 else 'B' if final >= 80 else 'C' if final >= 70 else 'D' if final >= 60 else 'F'
+print(f'\nPredicted final grade: {final_total:.2f} ({letter})')
+print(f'\nPredicted final grade: {final_separate:.2f} ({letter})')
