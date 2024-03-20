@@ -14,6 +14,7 @@ with open('data//FinalData.csv', 'w', newline='') as csvfile:
         quiz = (currentRow['QZ01'] + currentRow['QZ02']) / 2
         exam = currentRow['EX01']
         total = (hw * .15) + (proj * .15) + (quiz * .2) + (exam * .5)
+        # total = (hw + proj + quiz + exam) / 4
         final = currentRow['Final']
         letter = currentRow['Grade']
         csvwriter.writerow([hw, proj, quiz, exam, total, final, letter])
